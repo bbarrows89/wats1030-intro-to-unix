@@ -98,7 +98,16 @@ cabox@box-codeanywhere:~/workspace$ uptime
  17:02:12 up 26 min,  1 user,  load average: 0.00, 0.00, 0.00
 
 * Run `ps aux` and review the results. (Hint: Use `man` to learn more about the `ps` command and options.) *How do you interpret what you see here?*
+
+The output of this command reminds me of running Ctrl-Alt-Delete and viewing the task manager on a machine running Windows OS.
+
 * Run `top` and review the results. (Hint: You may need to use `ctrl-c` to get out of this app.) *How do you interpret what you see here?*
+
+This looks even MORE like the task manager I remember using if my computer froze when I was growing up.
+It seems to show how much CPU power and RAM is being used as a percentage out of 100. It also shows a column for "virtual memory".
+Additionally, there's a "PID", which I'm guessing means Process ID, as well as a column which lists the user of the process. 
+On my CodeAnywhere devbox, the majority of the processes are used by "root", with about 5 more used by "cabox" (CodeAnywhere box), and one being used by 'syslog'.
+
 
 ### Finding and Viewing Files
 
