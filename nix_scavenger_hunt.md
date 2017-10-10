@@ -51,16 +51,52 @@ use a long listing format
 * A Unix filesystem has a few special shortcuts to refer to specific locations. `/` indicates the *root* of the filesystem, meaning the top-most directory in the filesystem hierarchy. Use the `cd` ("change directory") command to move to the root directory. (Hint: Use `man` to look up the `cd` command if you have any issues) *Then run `pwd` and paste the output here:*
 * Another special shortcut in Unix is the `~` location. This indicates the *user root* directory, meaning the top-most directory in the hierarchy that comes below your user account. Use `cd` to move to `~`. *Run `pwd` and paste the response here:*
 * Change directory into the `challenge_files` directory. Use `ls` to find only the files with a `.demo` pattern. *How many files do you find?*
+
+Using 'ls -X', I sorted the files by extension and found three with .demo
+
+2015_special_stuff.demo
+cloaked-wookie.demo
+scooter-double-mamba.demo
+
+
 * Use the `cd` command to move "up" one directory. *Where are you in the filesystem now?*
+
+cabox@box-codeanywhere:~/workspace/challenge_files$ cd ..
+cabox@box-codeanywhere:~/workspace$
+
 * Press the up arrow on your keyboard. *What just happened?*
+
+The last command I typed ('cd ..') reappeared in the terminal.
+
 * Press the up arrow a few more times. *What do you see?*
+
+The terminal is bringing up my last used commands!
+
 * Run the `history` command. *What do you see?*
+
+I see a list of my last 11 used commands. Very cool.
 
 ### Observing the System
 
 * Discover what account you are logged into using the `whoami` command. *What username are you currently using?*
+
+cabox@box-codeanywhere:~/workspace$ whoami
+cabox
+
+(P.S., I've been switching back and forth between CodeAnywhere and my local machine using VS Code for this assignment.)
+
 * Discover who else is on your system with the `who` command. *Are any other users using your system? If so, list them here:*
+
+cabox@box-codeanywhere:~/workspace$ who
+cabox    pts/0        Oct 10 16:46 (52.161.27.120)
+
+From what I can tell, my Dev Box is the only "user" of this system. 
+
 * How long has your system been running? Use `uptime` to see, and *paste the result here:*
+
+cabox@box-codeanywhere:~/workspace$ uptime
+ 17:02:12 up 26 min,  1 user,  load average: 0.00, 0.00, 0.00
+
 * Run `ps aux` and review the results. (Hint: Use `man` to learn more about the `ps` command and options.) *How do you interpret what you see here?*
 * Run `top` and review the results. (Hint: You may need to use `ctrl-c` to get out of this app.) *How do you interpret what you see here?*
 
