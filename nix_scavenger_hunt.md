@@ -4,12 +4,6 @@ Complete the following challenges using the command-line interface on your favor
 Unix or Linux operating system. You are welcome and encouraged to consult any
 additional documentation online or in books.
 
-Please add your answers/responses/text pastes to the document after each prompt.
-
-Note: For some of the challenges you will need to reference files included with
-this repository, so you will need to fork the repo into your own Github account
-and then clone it to your development environment.
-
 ## The Challenges
 
 ### Navigating the Filesystem
@@ -48,17 +42,41 @@ README.md   nix_scavenger_hunt.md     super_scavengers.md
 
 * Commands can also take *arguments*, which are usually the names of files or locations that you want the command to work with. Try running `ls /` to see what files are in the *root* directory of the filesystem. *What files and directories do you see listed?*
 
-
+```
+Bryans-MacBook-Air:wats1030-intro-to-unix bryan$ ls /
+Applications                    System                          cores                           macOS_SDK                       tmp
+Desktop                         User Information                dev                             net                             usr
+Developer                       Users                           etc                             preinstall                      var
+Library                         Volumes                         home                            private
+Network                         bin                             installer.failurerequests       sbin
+```
 
 * A Unix filesystem has a few special shortcuts to refer to specific locations. `/` indicates the *root* of the filesystem, meaning the top-most directory in the filesystem hierarchy. Use the `cd` ("change directory") command to move to the root directory. (Hint: Use `man` to look up the `cd` command if you have any issues) *Then run `pwd` and paste the output here:*
+
+```
+Bryans-MacBook-Air:wats1030-intro-to-unix bryan$ cd /
+Bryans-MacBook-Air:/ bryan$ pwd
+/
+Bryans-MacBook-Air:/ bryan$
+```
+
 * Another special shortcut in Unix is the `~` location. This indicates the *user root* directory, meaning the top-most directory in the hierarchy that comes below your user account. Use `cd` to move to `~`. *Run `pwd` and paste the response here:*
+
+```
+Bryans-MacBook-Air:web-projects bryan$ cd ~
+Bryans-MacBook-Air:~ bryan$ pwd
+/Users/bryan
+```
+
 * Change directory into the `challenge_files` directory. Use `ls` to find only the files with a `.demo` pattern. *How many files do you find?*
 
-> Using 'ls -X', I sorted the files by extension and found three with .demo
+> Using 'ls *.demo', I sorted the files by extension and found three with .demo
+> The * prior to .demo means that any filename can be valid, but .demo extension is necessary.
+> Conversely, I could run something like demo.* to find any filetype named 'demo'.
+
 ```
-2015_special_stuff.demo
-cloaked-wookie.demo
-scooter-double-mamba.demo
+Bryans-MacBook-Air:challenge_files bryan$ ls *.demo
+2015_special_stuff.demo         cloaked-wookie.demo             scooter-double-mamba.demo
 ```
 
 * Use the `cd` command to move "up" one directory. *Where are you in the filesystem now?*
@@ -162,16 +180,18 @@ Bryans-MacBook-Air:challenge_files bryan$ grep -r -n --color "Waldo" .
 
 * Sometimes it's useful to output the results of a command to a text file for further analysis, reference, or processing. Try running `ls > files.txt`. Notice that the file `files.txt` was created. View that file using `more`. *What do you see in the `files.txt` file?*
 
-> The `new files.txt` contains the output of the ls command... 
-> It essentially ran the `'ls'` cmd in my current directory, then print output to `> files.txt`.
+```
+The `new files.txt` contains the output of the ls command... 
+It essentially ran the `'ls'` cmd in my current directory, then print output to `> files.txt`.
+```
 
 * Notice that if you run `ls -alh` in the `challenge_files` directory, the files scroll by very quickly. Sometimes it would be better to get the results in a paginated format. Try running `ls -alh | more`. *Describe what you see when you run `ls -alh | more`.*
 
-> The results are, indeed, "paginated". It's now much easier to page up/down and scroll through the files.
+`The results are, indeed, "paginated". It's now much easier to page up/down and scroll through the files.`
 
 * Earlier, when you viewed the list of active processes on your devbox using `ps aux`, the list was probably really long. You can make this list more manageable by using the pipe (`|`) to filter the results of `ps` using `grep`. Run `ps aux | grep <your_username>` to see what processes are running for your specific user. *Paste the list of processes that reference your username here:*
 
-> Evidently, there are a lot of background processes running on my machine!!!
+`Evidently, there are a lot of background processes running on my machine!!!`
 
 ```Shell
 Bryans-MacBook-Air:wats1030-intro-to-unix bryan$ ps aux | grep bryan
