@@ -14,35 +14,37 @@ and then clone it to your development environment.
 
 ### Navigating the Filesystem
 
-* Get an idea of where you are in the operating system. Use the `pwd` command to find your "path to working directory"--your current location in the filesystem of your devbox. * Paste the output of the `pwd` command here: *
-'''
+* Get an idea of where you are in the operating system. Use the `pwd` command to find your "path to working directory"--your current location in the filesystem of your devbox. * Paste the output of the `pwd` command here: * 
+
+```Shell
 Bryans-MacBook-Air:wats1030-intro-to-unix bryan$ pwd
 /Users/bryan/web-projects/seattle-university/wats1030-intro-to-unix
-'''
+```
+
 * Discover more about this filesystem. Use `ls` (the "list" command)to see what is in this directory. *What directories and files do you see when you run `ls`?*
 
-'''
+```Shell
 Bryans-MacBook-Air:wats1030-intro-to-unix bryan$ ls
 LICENSE     challenge_files           nix_scavenger_hunt_stretch.md
 README.md   nix_scavenger_hunt.md     super_scavengers.md
-'''
-
+```
 
 * You can use *options* to modify how a command runs. Try using `ls -alh` to see the contents of your current directory. *How are the results different when you use the `-alh` options?* 
 
- It's a much longer list which seems to include date last accessed, types of file names, and some kind of read/write information about the files.
+> It's a much longer list which seems to include date last accessed, types of file names, and some kind of read/write
+> information about the files.
 
  
 * The `man` ("manual") command tells you more about how any given command works. (*WARNING:* CodeAnywhere does not support the man command. You can click the following link to complete this task: http://linux.die.net/man/). Run `man` to see instructions about how to use `man`. Then use `man` to learn what the `a`, `l`, and `h` options mean when used with the `ls` command. *Write down what those options do?*
 
--a, --all
-do not ignore entries starting with .
+> -a, --all
+> do not ignore entries starting with .
 
--h, --human-readable
-with -l, print sizes in human readable format (e.g., 1K 234M 2G)
+> -h, --human-readable
+> with -l, print sizes in human readable format (e.g., 1K 234M 2G)
 
--l
-use a long listing format
+> -l
+> use a long listing format
 
 * Commands can also take *arguments*, which are usually the names of files or locations that you want the command to work with. Try running `ls /` to see what files are in the *root* directory of the filesystem. *What files and directories do you see listed?*
 
@@ -52,113 +54,126 @@ use a long listing format
 * Another special shortcut in Unix is the `~` location. This indicates the *user root* directory, meaning the top-most directory in the hierarchy that comes below your user account. Use `cd` to move to `~`. *Run `pwd` and paste the response here:*
 * Change directory into the `challenge_files` directory. Use `ls` to find only the files with a `.demo` pattern. *How many files do you find?*
 
-Using 'ls -X', I sorted the files by extension and found three with .demo
-
+> Using 'ls -X', I sorted the files by extension and found three with .demo
+```
 2015_special_stuff.demo
 cloaked-wookie.demo
 scooter-double-mamba.demo
-
+```
 
 * Use the `cd` command to move "up" one directory. *Where are you in the filesystem now?*
 
+```Shell
 cabox@box-codeanywhere:~/workspace/challenge_files$ cd ..
 cabox@box-codeanywhere:~/workspace$
+```
 
 * Press the up arrow on your keyboard. *What just happened?*
 
-The last command I typed ('cd ..') reappeared in the terminal.
+> The last command I typed ('cd ..') reappeared in the terminal.
 
 * Press the up arrow a few more times. *What do you see?*
 
-The terminal is bringing up my last used commands!
+> The terminal is bringing up my last used commands!
 
 * Run the `history` command. *What do you see?*
 
-I see a list of my last 11 used commands. Very cool.
+> I see a list of my last 11 used commands. Very cool.
 
 ### Observing the System
 
 * Discover what account you are logged into using the `whoami` command. *What username are you currently using?*
 
+```Shell
 cabox@box-codeanywhere:~/workspace$ whoami
 cabox
-
-(P.S., I've been switching back and forth between CodeAnywhere and my local machine using VS Code for this assignment.)
+```
+> (P.S., I've been switching back and forth between CodeAnywhere and my local machine using VS Code for this assignment.)
 
 * Discover who else is on your system with the `who` command. *Are any other users using your system? If so, list them here:*
 
+```Shell
 cabox@box-codeanywhere:~/workspace$ who
 cabox    pts/0        Oct 10 16:46 (52.161.27.120)
+```
 
-From what I can tell, my Dev Box is the only "user" of this system. 
+> From what I can tell, my Dev Box is the only "user" of this system. 
 
 * How long has your system been running? Use `uptime` to see, and *paste the result here:*
 
+```Shell
 cabox@box-codeanywhere:~/workspace$ uptime
  17:02:12 up 26 min,  1 user,  load average: 0.00, 0.00, 0.00
-
+```
 * Run `ps aux` and review the results. (Hint: Use `man` to learn more about the `ps` command and options.) *How do you interpret what you see here?*
 
-The output of this command reminds me of running Ctrl-Alt-Delete and viewing the task manager on a machine running Windows OS.
+> The output of this command reminds me of running Ctrl-Alt-Delete and viewing the task manager on a machine running Windows 
+> OS.
 
 * Run `top` and review the results. (Hint: You may need to use `ctrl-c` to get out of this app.) *How do you interpret what you see here?*
 
-This looks even MORE like the task manager I remember using if my computer froze when I was growing up.
-It seems to show how much CPU power and RAM is being used as a percentage out of 100. It also shows a column for "virtual memory".
-Additionally, there's a "PID", which I'm guessing means Process ID, as well as a column which lists the user of the process. 
-On my CodeAnywhere devbox, the majority of the processes are used by "root", with about 5 more used by "cabox" (CodeAnywhere box), and one being used by 'syslog'.
+> This looks even MORE like the task manager I remember using if my computer froze when I was growing up.
+> It seems to show how much CPU power and RAM is being used as a percentage out of 100. It also shows a column for "virtual memory".
+> Additionally, there's a "PID", which I'm guessing means Process ID, as well as a column which lists the user of the process. 
+> On my CodeAnywhere devbox, the majority of the processes are used by "root", with about 5 more used by "cabox" (CodeAnywhere > box), and one being used by 'syslog'.
 
 
 ### Finding and Viewing Files
 
 * Make sure you are in the `challenge_files` directory. Use the `*` wildcard to find all the files that have the word "credit" in the filename. *How many files did you find?*
 
-I found two files... 
-'credit_cards.txt' and 'credit_cards2.txt'
+> I found two files... 
+> 'credit_cards.txt' and 'credit_cards2.txt'
 
 * Use the `more` command to view one of the `credit_cards` files you just discovered. (Hint: Type `q` to quit viewing the file. Press the `spacebar` to page down. Use your keyboard arrows to move up/down.) *What is the date in the file you have viewed?*
 
+```Shell
 Bryans-MacBook-Air:challenge_files bryan$ more credit_cards.txt
 Last updated: 01-15-2015
-
-(followed by a long list of numbers, presumably credit card numbers)
+```
+> (followed by a long list of numbers, presumably credit card numbers)
 
 * Use the `find` command to search for files more effectively. Search the sub-directories under `challenge_files` to find the location of the file named `modi_laboriosam.txt`. *Where is that file located?*
 
+```Shell
 Bryans-MacBook-Air:challenge_files bryan$ find . -name modi_laboriosam.txt
 ./tmp/modi_laboriosam.txt
-
-It's located in the challenge_files/tmp/ directory.
+```
+> It's located in the challenge_files/tmp/ directory.
 
 * Use the `grep` command to search for text within a file. Use `grep` on all the `.user` files in `challenge_files` to find which files contain "WA" (the abbreviation for Washington state). *How many files did you find?*
 
+```Shell
 Bryans-MacBook-Air:challenge_files bryan$ grep "WA" *.user
 Britt-Erdman.user:O'Harachester, WA 37261
 Lissie-Strosin.user:Jewessfurt, WA 00816-7241
+```
 
 * Use the `-r` option of `grep` to *recursively* find the text "Waldo" hidden in a file somewhere under the `challenge_files` directory. *Paste the result showing the file and line where the word "Waldo" shows up.*
 
+```Shell
 Bryans-MacBook-Air:challenge_files bryan$ grep -r -n --color "Waldo" .
 ./serial-numbers/eaque_molestiae.txt:4:Ut est maiores quia autem. Nisi modi Waldo sed corporis sit explicabo ut est. Et est placeat ea sunt sunt consectetur sunt incidunt. Explicabo vel esse blanditiis dolorem culpa non quia.
-
-The prefix "4" indicates that Waldo is on the 4th line of the file:
-./serial-numbers/eaque_molestiae.txt
+```
+> The prefix "4" indicates that Waldo is on the 4th line of the file:
+`./serial-numbers/eaque_molestiae.txt`
 
 ### Pipes and Connecting Commands
 
 * Sometimes it's useful to output the results of a command to a text file for further analysis, reference, or processing. Try running `ls > files.txt`. Notice that the file `files.txt` was created. View that file using `more`. *What do you see in the `files.txt` file?*
 
-The new files.txt contains the output of the ls command... 
-It essentially ran the 'ls' cmd in my current directory, then print output to > files.txt.
+> The `new files.txt` contains the output of the ls command... 
+> It essentially ran the `'ls'` cmd in my current directory, then print output to `> files.txt`.
 
 * Notice that if you run `ls -alh` in the `challenge_files` directory, the files scroll by very quickly. Sometimes it would be better to get the results in a paginated format. Try running `ls -alh | more`. *Describe what you see when you run `ls -alh | more`.*
 
-The results are, indeed, "paginated". It's now much easier to page up/down and scroll through the files.
+> The results are, indeed, "paginated". It's now much easier to page up/down and scroll through the files.
 
 * Earlier, when you viewed the list of active processes on your devbox using `ps aux`, the list was probably really long. You can make this list more manageable by using the pipe (`|`) to filter the results of `ps` using `grep`. Run `ps aux | grep <your_username>` to see what processes are running for your specific user. *Paste the list of processes that reference your username here:*
 
-Evidently, there are a lot of background processes running on my machine!!!
+> Evidently, there are a lot of background processes running on my machine!!!
 
+```Shell
 Bryans-MacBook-Air:wats1030-intro-to-unix bryan$ ps aux | grep bryan
 bryan              666  14.2  0.7  3551676  62684   ??  S    24Sep17 238:14.98 /Library/Application Support/Adobe/Adobe Desktop Common/HEX/Adobe CEF Helper.app/Contents/MacOS/Adobe CEF Helper --type=renderer --disable-pinch --disable-databases --primordial-pipe-token=83634D9413FA008C55A2CA32D3CF6804 --lang=en-US --lang=en-US --log-file=/Users/bryan/Library/Logs/CreativeCloud/ACC/CEF.log --log-severity=warning --user-agent=Mozilla/5.0 (Macintosh) AppleWebKit/537.36 (KHTML, like Gecko) Safari/537.36 CreativeCloud/4.2.0.211 --num-raster-threads=2 --enable-gpu-rasterization --enable-zero-copy --enable-gpu-memory-buffer-compositor-resources --enable-main-frame-before-activation --content-image-texture-target=0,0,3553;0,1,3553;0,2,3553;0,3,3553;0,4,3553;0,5,3553;0,6,3553;0,7,3553;0,8,3553;0,9,3553;0,10,34037;0,11,34037;0,12,34037;0,13,3553;0,14,3553;0,15,3553;1,0,3553;1,1,3553;1,2,3553;1,3,3553;1,4,3553;1,5,3553;1,6,3553;1,7,3553;1,8,3553;1,9,3553;1,10,34037;1,11,34037;1,12,34037;1,13,3553;1,14,3553;1,15,3553;2,0,3553;2,1,3553;2,2,3553;2,3,3553;2,4,3553;2,5,34037;2,6,3553;2,7,3553;2,8,3553;2,9,3553;2,10,3553;2,11,3553;2,12,34037;2,13,3553;2,14,34037;2,15,34037;3,0,3553;3,1,3553;3,2,3553;3,3,3553;3,4,3553;3,5,34037;3,6,3553;3,7,3553;3,8,3553;3,9,3553;3,10,3553;3,11,3553;3,12,34037;3,13,3553;3,14,34037;3,15,34037 --service-request-channel-token=83634D9413FA008C55A2CA32D3CF6804 --renderer-client-id=3
 bryan              454   6.6  0.3  2960908  21476   ??  S    24Sep17 111:55.39 /Applications/Utilities/Adobe Creative Cloud/ACC/Creative Cloud.app/Contents/MacOS/Creative Cloud --showwindow=false --onOSstartup=true
@@ -338,3 +353,4 @@ bryan            14889   0.0  0.3  3016524  22276   ??  S     5:17PM   0:00.11 /
 bryan            14887   0.0  0.3  2517636  27364   ??  Ss    5:17PM   0:00.20 /System/Library/Frameworks/Metal.framework/Versions/A/XPCServices/MTLCompilerService.xpc/Contents/MacOS/MTLCompilerService
 bryan            14885   0.0  0.9  2613900  76436   ??  S     5:17PM   0:10.32 /Applications/Utilities/Activity Monitor.app/Contents/MacOS/Activity Monitor
 Bryans-MacBook-Air:wats1030-intro-to-unix bryan$
+```
